@@ -18,17 +18,16 @@ We will use GitHub to distribute the assignments, and other class materials. Our
 #### Just Cloning the Class Repository
 You don't need a GitHub account for just cloning the class repository. Just do:
 
-`git clone https://github.com/umddb/cmsc424-fall2022.git`
+`git clone https://github.com/umddb/cmsc424-spring2024.git`
 
-You can do `git pull` (from within the `cmsc424-fall2022` directory) to fetch the newly added material. 
+You can do `git pull` (from within the `cmsc424-spring2024` directory) to fetch the newly added material. 
 
 *NOTE*: If you are having trouble installing `git`, you can just download the files instead (as a zipfile), although updating may become tedious. 
 
 #### Setting up a GitHub Account 
 NOTE: You do not have to do this for this class -- `git clone` and `git pull` can be used without an account.
 
-Repositories hosted on github for free accounts are public; however, you can easily sign up for an educational account which allows you to host 5 private repositories. More
-details: https://education.github.com/
+Repositories hosted on github for free accounts are public; however, you can easily sign up for an educational account which allows you to host 5 private repositories. More details: https://education.github.com/
 
 - Create an account on Github: https://github.com
 - Generate and associate an SSH key with your account
@@ -58,7 +57,7 @@ PostgreSQL is a full-fledged and powerful relational database system, and will b
 **PostgreSQL is already installed on your virtual machine. These instructions are for you to understand the setup -- assuming you have the docker image running, you
 don't need to do any of this.**
 
-The current version of PostgreSQL is 14. However, the version installed on the VMs is 12, the one available through `apt-get` right now. You will find the detailed documentation at: https://www.postgresql.org/docs/12/index.html
+The current version of PostgreSQL is 16. However, the version installed on the VMs is 14, the one available through `apt-get` right now. You will find the detailed documentation at: https://www.postgresql.org/docs/14/index.html
 
 Following steps will get you started with creating a database and populating it with the `University` dataset provided on the book website: http://www.db-book.com
 
@@ -134,8 +133,3 @@ This will start a server on the VM, listening on port 8888. We will access it fr
 * You should see the Notebooks in the `Assignment-0/` directory. Click to open the "Jupyter Getting Started" Notebook, and follow the instruction therein.
 
 * The second Notebook ("Basics of SQL") covers basics of SQL, by connecting to your local PostgreSQL instance. The Notebook also serves as an alternative mechanism to run queries. However, in order to use that, you must set up a password in `psql` using `\password` (set the password to be `root`).
-
----
-
-### Common errors / FAQs
-
