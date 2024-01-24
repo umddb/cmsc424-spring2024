@@ -11,6 +11,8 @@ It also assumes you have cloned the git repository, and have done a `git pull` t
 1. SQLTesting.py: File to be used for running the queries (in `queries.py`) against the database
 
 ### Getting started
+If you are using the provided docker image, the database should already be loaded. If not (or if you are using another instance of PostgreSQL), you can follow these instructions.
+
 1. Create a new database using: 'createdb stackexchange'
 1. Load the data using: 'psql -f populate-se.sql' (or you can do \i populate-se.sql from within psql)
 1. There will be a lot of errors -- ignore those -- we are using a subset of the posts and users, and we are letting PostgreSQL reject inserts that violate referential integrity.
