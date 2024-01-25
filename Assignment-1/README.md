@@ -1,6 +1,8 @@
-## Assignment 1: SQL Assignment - Part 1, CMSC424, Fall 2022
+## Assignment 1: SQL Assignment, CMSC424, Spring 2024 (Part 1)
 
 *The assignment is to be done by yourself.*
+
+*Keep in mind that this assignment has a Part 2 which is available on GradeScope.*
 
 The following assumes you have gone through PostgreSQL instructions and have ran some queries on the `university` database. 
 It also assumes you have cloned the git repository, and have done a `git pull` to download the directory `Assignment-1`. The files are:
