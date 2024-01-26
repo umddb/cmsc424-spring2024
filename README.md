@@ -45,6 +45,8 @@ PostgreSQL, MongoDB, and Spark pre-loaded (we may update the image later if need
 1. The following video shows what it should look like after you run the `docker run` command from above. 
 
 ./docker-setup-1.mov
+<video src='docker-setup-1.mov' />
+
 
 1. This video shows how Jupyter Notebook looks. Note that the web browser here is running on the host machine and connecting to the Jupyter server running inside the VM.
 
