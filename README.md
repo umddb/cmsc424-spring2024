@@ -9,6 +9,7 @@ There are some more detailed instructions in the README.md files within `Assignm
 PostgreSQL, MongoDB, and Spark pre-loaded (we may update the image later if needed).
     - Install Docker Desktop: https://www.docker.com/products/docker-desktop
     - Run the docker image: `docker run --rm -ti -p 8888:8888 -p 8881:8881 -p 5432:5432 -v /Users/amol/git/cmsc424-spring2024:/data amolumd/cmsc424-spring2024`. 
+    - *If you are on windows or an Intel Mac or if you see a platform mismatch issue, try using: amolumd/cmsc424-spring2024-amd64.*
     - Make sure to replace `/Users/amol/git/cmsc424-spring2024` with the correct path of the `top level directory` in the cloned GitHub repository. 
     - The above command mounts the local GitHub directory into `/data` on the virtual machine. Do `ls /data` in the virtual machine to confirm that you can see `Assignment-0` directory in there. Make all your changes in that directory itself -- any changes elsewhere in the container will not survive when you exit it.
     - Assuming it ran successfully, you should be logged in as `root` in the docker container, and you should see the shell.
@@ -40,6 +41,14 @@ PostgreSQL, MongoDB, and Spark pre-loaded (we may update the image later if need
    - Run: `$SPARKHOME/bin/pyspark` -- this starts a standard python shell with Spark modules loaded and some initialization done.
    - In the python shell, run `sc.textFile("/data/README.md").take(5)`
    - The output should be an array with the first 5 lines of the README.md file.
+
+1. The following video shows what it should look like after you run the `docker run` command from above. 
+
+./docker-setup-1.mov
+
+1. This video shows how Jupyter Notebook looks. Note that the web browser here is running on the host machine and connecting to the Jupyter server running inside the VM.
+
+./docker-setup-2.mov
 
 1. If you are having trouble installing Docker or somewhere in the steps above, you can also install the software directly by going through the commands listed in
 the Dockerfile.
