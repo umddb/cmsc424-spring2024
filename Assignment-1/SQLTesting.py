@@ -19,7 +19,7 @@ conn = psycopg2.connect("dbname=stackexchange user=root")
 cur = conn.cursor()
 
 totalscore = 0
-for i in range(0, 21):
+for i in range(0, 17):
     # If a query is specified by -q option, only do that one
     if args.query is None or args.query == i:
         try:
