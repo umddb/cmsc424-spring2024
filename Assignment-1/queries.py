@@ -141,7 +141,7 @@ select 0;
 """
 
 
-### 11. For the users who have received at least 50 badges in total, find the
+### 11. For the users who have received at least 200 badges in total, find the
 ### number of badges they have received in each year. This can be used, e.g., to 
 ### create a plot of the number of badges received in each year for the most active users.
 ###
