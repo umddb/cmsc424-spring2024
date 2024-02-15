@@ -152,6 +152,16 @@ select 0;
 ###
 ### Output columns: Id, DisplayName, Year, Num_Badges
 ### Order by Id ascending, Year ascending
+###
+### NOTE: If the query below fails for you for some reason (it seems to be happening on amd64 image),
+### use this query instead -- the output is identical but years are hardcoded:
+###
+### with temp1 as (
+###      select id, displayname, year
+###      from users, generate_series(2011, 2022) as year
+###      where id in (select userid from badges group by userid having count(*) >= 200))
+### select * from temp1;
+###
 queries[11] = """
 with years as (
         select distinct extract(year from date) as year 
