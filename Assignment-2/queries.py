@@ -30,8 +30,8 @@ select 0;
 ### 2 [0.25]. Write a single query/statement to set the values of the new columns.
 ###
 ### The "Lengthfilter" column should be set as follows:
-### Long: length(text) > 100, Medium: ViewCount between 50 and 100,
-###         and Low: viewcount < 50
+### Long: length(text) > 100, Medium: length(text) between 50 and 100,
+###         and Low: length(text) < 50
 ### Use CASE to write this part.
 ### You may have to do an explicit cast for the popularity attribute using '::lengthfiltertype'
 ### 
