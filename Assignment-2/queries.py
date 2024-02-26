@@ -77,7 +77,7 @@ select 0;
 ### and also "Nullable" column (and comparing to "\d comments").
 ###
 ### Write a single ALTER TABLE command to add a NOT NULL constraint on the "ID" column, add
-### a foreign key constraint on the "PostId" column, and add a check constraint on the "Score" column.
+### a foreign key constraint on the "PostId" column, and add a check constraint on the "Score" column (score >= 0).
 ###
 ### We can't add a primary key constraint any more, because there are duplicate values in the "ID" column now
 ### and those would need to be taken care of manually first.
