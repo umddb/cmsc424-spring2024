@@ -283,7 +283,6 @@ select 0;
 ### Three functions to make this easier: left(), right(), and unnest()
 ### 
 ### Given this table, we can find the number of total view count of posts for each tag easily.
-### We have provided that part of the query already. 
 queries[13] = """
 select 0;
 """
@@ -302,6 +301,7 @@ select 0;
 ### for each user. (This query is a bit artificial as the schema lacks a good recursive structure).
 ###
 ### The output should be a table with two columns: parent, ct
+### Order by: parent
 queries[14] = """
 select 0;
 """

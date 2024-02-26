@@ -52,7 +52,7 @@ test_queries_to_run[3] = ("select * from commentscopy where id in (6081, 6251); 
 test_queries_to_run[4] = ("select * from commentscopy where id between 50000 and 50010", 
                                 "-- Result should contain the new 10 tuples along with older tuples with those ids")
 test_queries_to_run[5] = ("select * from information_schema.table_constraints tc where tc.table_name = 'commentscopy';", 
-       "-- Result (should have the 5 new constraints for commentscopy, but not all the information")
+       "-- Result (should have the 3 new constraints for commentscopy, but not all the information")
 
 test_queries_to_run[7] = ("select * from PostsSummary where id < 10", 
                                 "-- Result (should have 8 rows with appropriate counts)")
