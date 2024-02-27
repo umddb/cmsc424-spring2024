@@ -276,13 +276,15 @@ select 0;
 ### So write a query to first convert the "tags" strings into an array (make
 ### sure to account for the "<" and ">" characters appropriately), and then
 ### use "unnest" to create a temporary table with schema: 
-### temp(tag, postid)
+### temp(tag, postid, viewcount)
 ###
+### Given this table, we can find the number of total view count of posts for each tag easily.
+###
+### Output columns: Tag, TotalViewCounts
 ### Order by: TotalViewCounts descending
 ###
 ### Three functions to make this easier: left(), right(), and unnest()
 ### 
-### Given this table, we can find the number of total view count of posts for each tag easily.
 queries[13] = """
 select 0;
 """
