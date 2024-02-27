@@ -91,7 +91,7 @@ select 0;
 ### If there are ties, the two (or more) badges should get the same "rank", and next ranks
 ### should be skipped.
 ###
-### HINT: Use a WITH clause to create a temporary table (temp(PostID, NumBadges)
+### HINT: Use a WITH clause to create a temporary table (temp(UserID, NumBadges)
 ### followed by the appropriate "RANK"
 ### construct -- PostgreSQL has several different
 ### See: https://www.eversql.com/rank-vs-dense_rank-vs-row_number-in-postgresql/, for some
