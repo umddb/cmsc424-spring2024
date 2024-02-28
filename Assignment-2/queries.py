@@ -190,7 +190,7 @@ select 0;
 ### should return a single tuple with a single attribute of type string/varchar as:
 ###  { "userid": 7,
 ###    "displayname": "Toby",
-###   "osts": [ {"title": "How can a group track database schema changes?", "score": 68, "creationdate": "2011-01-03"},
+###   "posts": [ {"title": "How can a group track database schema changes?", "score": 68, "creationdate": "2011-01-03"},
 ###                {"title": "", "score": 15, "creationdate": "2011-01-03"},
 ###                {"title": "Confirm that my.cnf file has loaded OK", "score": 4, "creationdate": "2011-01-19"}
 ###    ]}
