@@ -1,0 +1,56 @@
+### Tables in the Database
+-- Table ADVISOR
+Attributes: I_ID (Varchar), S_ID (Varchar)
+Primary Key: S_ID
+-- Table CLASSROOM
+Attributes: BUILDING (Varchar), CAPACITY (Other), ROOM_NUMBER (Varchar)
+Primary Key: BUILDING, ROOM_NUMBER
+-- Table COURSE
+Attributes: COURSE_ID (Varchar), CREDITS (Other), DEPT_NAME (Varchar), TITLE (Varchar)
+Primary Key: COURSE_ID
+-- Table DEPARTMENT
+Attributes: BUDGET (Other), BUILDING (Varchar), DEPT_NAME (Varchar)
+Primary Key: DEPT_NAME
+-- Table INSTRUCTOR
+Attributes: DEPT_NAME (Varchar), ID (Varchar), NAME (Varchar), SALARY (Other)
+Primary Key: ID
+-- Table PREREQ
+Attributes: COURSE_ID (Varchar), PREREQ_ID (Varchar)
+Primary Key: COURSE_ID, PREREQ_ID
+-- Table SECTION
+Attributes: BUILDING (Varchar), COURSE_ID (Varchar), ROOM_NUMBER (Varchar), SEC_ID (Varchar), SEMESTER (Varchar), TIME_SLOT_ID (Varchar), YEAR (Other)
+Primary Key: COURSE_ID, SEC_ID, SEMESTER, YEAR
+-- Table STUDENT
+Attributes: DEPT_NAME (Varchar), ID (Varchar), NAME (Varchar), TOT_CRED (Other)
+Primary Key: ID
+-- Table TAKES
+Attributes: COURSE_ID (Varchar), GRADE (Varchar), ID (Varchar), SEC_ID (Varchar), SEMESTER (Varchar), YEAR (Other)
+Primary Key: COURSE_ID, ID, SEC_ID, SEMESTER, YEAR
+-- Table TEACHES
+Attributes: COURSE_ID (Varchar), ID (Varchar), SEC_ID (Varchar), SEMESTER (Varchar), YEAR (Other)
+Primary Key: COURSE_ID, ID, SEC_ID, SEMESTER, YEAR
+-- Table TIME_SLOT
+Attributes: DAY (Varchar), END_HR (Other), END_MIN (Other), START_HR (Other), START_MIN (Other), TIME_SLOT_ID (Varchar)
+Primary Key: DAY, START_HR, START_MIN, TIME_SLOT_ID
+
+### Joinable Pairs of Tables (based on Foreign Keys)
+CLASSROOM can be joined SECTION on attributes BUILDING and BUILDING
+CLASSROOM can be joined SECTION on attributes ROOM_NUMBER and ROOM_NUMBER
+COURSE can be joined PREREQ on attributes COURSE_ID and COURSE_ID
+COURSE can be joined PREREQ on attributes COURSE_ID and PREREQ_ID
+COURSE can be joined SECTION on attributes COURSE_ID and COURSE_ID
+DEPARTMENT can be joined COURSE on attributes DEPT_NAME and DEPT_NAME
+DEPARTMENT can be joined INSTRUCTOR on attributes DEPT_NAME and DEPT_NAME
+DEPARTMENT can be joined STUDENT on attributes DEPT_NAME and DEPT_NAME
+INSTRUCTOR can be joined ADVISOR on attributes ID and I_ID
+INSTRUCTOR can be joined TEACHES on attributes ID and ID
+SECTION can be joined TAKES on attributes COURSE_ID and COURSE_ID
+SECTION can be joined TAKES on attributes SEC_ID and SEC_ID
+SECTION can be joined TAKES on attributes SEMESTER and SEMESTER
+SECTION can be joined TAKES on attributes YEAR and YEAR
+SECTION can be joined TEACHES on attributes COURSE_ID and COURSE_ID
+SECTION can be joined TEACHES on attributes SEC_ID and SEC_ID
+SECTION can be joined TEACHES on attributes SEMESTER and SEMESTER
+SECTION can be joined TEACHES on attributes YEAR and YEAR
+STUDENT can be joined ADVISOR on attributes ID and S_ID
+STUDENT can be joined TAKES on attributes ID and ID

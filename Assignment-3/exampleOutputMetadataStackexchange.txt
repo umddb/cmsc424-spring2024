@@ -1,0 +1,34 @@
+### Tables in the Database
+-- Table BADGES
+Attributes: CLASS (Integer), DATE (Date), ID (Integer), NAME (Varchar), USERID (Integer)
+Primary Key: ID
+-- Table COMMENTS
+Attributes: CREATIONDATE (Date), ID (Integer), POSTID (Integer), SCORE (Integer), TEXT (Varchar), USERID (Integer)
+Primary Key: ID
+-- Table POSTS
+Attributes: ACCEPTEDANSWERID (Integer), CREATIONDATE (Date), ID (Integer), LASTEDITORUSERID (Integer), OWNERUSERID (Integer), PARENTID (Integer), POSTTYPEID (Integer), SCORE (Integer), TAGS (Varchar), TITLE (Varchar), VIEWCOUNT (Integer)
+Primary Key: ID
+-- Table POSTTYPES
+Attributes: DESCRIPTION (Varchar), POSTTYPEID (Integer)
+Primary Key: POSTTYPEID
+-- Table USERS
+Attributes: CREATIONDATE (Date), DISPLAYNAME (Varchar), DOWNVOTES (Integer), ID (Integer), REPUTATION (Integer), UPVOTES (Integer), VIEWS (Integer)
+Primary Key: ID
+-- Table VOTES
+Attributes: BOUNTYAMOUNT (Integer), CREATIONDATE (Date), ID (Integer), POSTID (Integer), USERID (Integer), VOTETYPEID (Integer)
+Primary Key: ID
+-- Table VOTETYPES
+Attributes: DESCRIPTION (Varchar), VOTETYPEID (Integer)
+Primary Key: VOTETYPEID
+
+### Joinable Pairs of Tables (based on Foreign Keys)
+POSTS can be joined COMMENTS on attributes ID and POSTID
+POSTS can be joined POSTS on attributes ID and PARENTID
+POSTS can be joined VOTES on attributes ID and POSTID
+POSTTYPES can be joined POSTS on attributes POSTTYPEID and POSTTYPEID
+USERS can be joined BADGES on attributes ID and USERID
+USERS can be joined COMMENTS on attributes ID and USERID
+USERS can be joined POSTS on attributes ID and LASTEDITORUSERID
+USERS can be joined POSTS on attributes ID and OWNERUSERID
+USERS can be joined VOTES on attributes ID and USERID
+VOTETYPES can be joined VOTES on attributes VOTETYPEID and VOTETYPEID
