@@ -50,7 +50,26 @@ def task14(logsRDD, day1, day2):
     return dummyrdd
 
 def task15(ratingsRDD):
-    return dummyrdd
+    def jaccard(set_a, set_b):
+        # Calculate the intersection of sets
+        intersection = len(set_a.intersection(set_b))
+
+        # Calculate the union of sets
+        union = len(set_a.union(set_b))
+
+        # Compute the Jaccard coefficient
+        jaccard = intersection / union if union != 0 else 0
+        return jaccard
+
+    t15_1 = ratingsRDD \
+            .filter(lambda t: int(t[0]) <= 100) \
+            .map(lambda t: (t[0], t[1])) \
+            .groupByKey() \
+            .map(lambda l: (l[0], list(l[1])))
+
+    t15 = t15_1
+
+    return t15
 
 def task16(nobelRDD):
     return dummyrdd
