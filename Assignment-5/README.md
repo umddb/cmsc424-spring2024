@@ -101,21 +101,36 @@ Your tasks are to fill out the 16 functions that are defined in the `functions.p
 
 - **Task 3 (0.25)**: The goal is to find the number of movies per year for each of the genres using `moviesRDD`. So the outputRDD should be of the form: (genre, year, num-movies). Use `map` to extract the year from the title (using a regular expression), `flatmap` similar to above, and then an appropriate `reduceByKey`. Ignore any movies where there is no year information in the title.
 
+Note: Treat '(no genres listed)' as a genre (it appears for some movies). One of the outputs like that looks like: _('(no genres listed)', '1957', 1)_
+
 - **Task 4 (0.25)**: The goal here is to find the 2 lexicographically smallest genres for each user across all the movies that they rated. So the outputRDD should be contain tuples of the form: ('1', ['Adventure', 'Fantasy']), assuming those two genres are the lexicographically smallest across all the genres associated with the movies the user '1' has rated. You will first have to `join` the two RDDs to connect users with movies they have rated, and then a `reduceByKey` with an appropriate function to find the two lexicographically smallest genres across all the movies they have rated. Note that, in `ratingsRDD`, the userID is first and movieID is second element. 
 
 - **Task 5 (0.25)**: Using the moviesRDD, create an RDD where the key is a 2-tuple (title-word, genre), where the former is a word in the title, and the latter is a genre associated with the movie.  The value associated with the key should be the number of movies in which the title-word is in the title, and the genre is in the list of genres for that movie. This will require a couple of `flatMap`s and an `aggregateByKey` to count. 
+
+Note: When splitting the title into words, first remove the following special characters: `,`, `(`, `)`, `:`, and then split using `.split()`. So in the output, you should have tuples like the following:
+_(('!', 'Comedy'), 2)_ (where `!` ends up getting treated as a word).
 
 - **Task 6 (0.25)**: Let's compute the number of times each user has used a specific tag using `postsRDD`. First filter out all posts where owneruserid is null, use `flatMap` to split up the tags, and then a reduceByKey can be used to compute the number of times each (user, tag) pair appears. You may need a `map` before applying `reduceByKey`. 
 
 _Answer for User 7: [((7, 'mysql'), 2), ((7, 'my.cnf'), 1), ((7, 'version-control'), 1), ((7, 'schema'), 1)]_
 
-- **Task 7 (0.25)**: Complete the function that takes as input the `ratingsRDD` and computes the average rating for each user across all the movies they rated.  The output should be an RDD of 2-tuples of the form `('1', 2.87)` (not the correct answer).  You can either use `aggregateByKey` or a `reduceByKey` followed by a `map`.
+- **Task 7 (0.25)**: Complete the function that takes as input the `ratingsRDD` and computes the average
+rating for each user across all the movies they rated.  The output should be an RDD of 2-tuples of the form
+`('1', 2.87)` (not the correct answer).  You can either use `aggregateByKey` or a `reduceByKey` followed by a
+`map`. 
+
+Note: Do not round the output. First few tuples look like: 
+_('1', 4.366379310344827), ('10', 3.2785714285714285), ('100', 3.945945945945946), ('101', 3.557377049180328)_
 
 - **Task 8 (0.25)**: Complete the function that takes as input the `ratingsRDD` and computes the `mode` rating for each movie across all users (i.e., the rating that was most common for that movie). If there are ties, pick the higher rating. Easiest way to do this would be a `groupByKey` followed by a map to compute the `mode`. Note: unlike the previous question, here we are aggregating over movies, not users.
 
-- **Task 9 (0.25)**: For `logsRDD`, write a function that computes the number of log requests for each day of the year. So the output should be an RDD with records of teh form `(0, 100)` (not the correct answer). This can be done through a `map` to extract the day (the provided sample file only has 4 days), followed by a group by aggregate.
+Note: Do not convert the ratings to a float. Note that the ratings go from '0.5' to '5.0', in increments of 0.5.
+Few of the output tuples: _('1', '4.0'), ('10', '3.0'), ('100', '3.0'), ('100044', '4.0'), ('100068', '3.5')_
 
-_Answer on provided sample file: [(0, 3565), (2, 2268), (1, 3004), (3, 1163)]_
+
+- **Task 9 (0.25)**: For `logsRDD`, write a function that computes the number of log requests for each day of the year. So the output should be an RDD with records of the form `(0, 100)` (not the correct answer). This can be done through a `map` to extract the day (the provided sample file only has 2 days), followed by a group by aggregate.
+
+_Answer on provided sample file: [(0, 5000), (1, 5000)]_
 
 - **Task 10 (0.25)**: Write just the flatmap function `task10_flatmap` that operates on `playRDD` -- for each line, it should execute a few of the common "sanitization" steps that are often done on text data before further processing (e.g., before tokenization for ML). Specifically: (1) make everything lowercase, (2) expand a specific list of words like "don't" with "do not", (3) replace all non-alphanumerical characters with " ", and (4) remove all stop (very common) words. 
 For (2), do: "is't" --> "is it", "'twere" --> "it were", and "'tis" --> "it is"
