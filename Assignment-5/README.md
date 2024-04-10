@@ -128,9 +128,9 @@ Note: Do not convert the ratings to a float. Note that the ratings go from '0.5'
 Few of the output tuples: _('1', '4.0'), ('10', '3.0'), ('100', '3.0'), ('100044', '4.0'), ('100068', '3.5')_
 
 
-- **Task 9 (0.25)**: For `logsRDD`, write a function that computes the number of log requests for each day of the year. So the output should be an RDD with records of the form `(0, 100)` (not the correct answer). This can be done through a `map` to extract the day (the provided sample file only has 2 days), followed by a group by aggregate.
+- **Task 9 (0.25)**: For `logsRDD`, write a function that computes the number of log requests for each day of the year. So the output should be an RDD with records of the form `(1, 100)` (not the correct answer). This can be done through a `map` to extract the day (the provided sample file only has 2 days), followed by a group by aggregate.
 
-_Answer on provided sample file: [(0, 5000), (1, 5000)]_
+_Answer on provided sample file: [(1, 5000), (2, 5000)]_
 
 - **Task 10 (0.25)**: Write just the flatmap function `task10_flatmap` that operates on `playRDD` -- for each line, it should execute a few of the common "sanitization" steps that are often done on text data before further processing (e.g., before tokenization for ML). Specifically: (1) make everything lowercase, (2) expand a specific list of words like "don't" with "do not", (3) replace all non-alphanumerical characters with " ", and (4) remove all stop (very common) words. 
 For (2), do: "is't" --> "is it", "'twere" --> "it were", and "'tis" --> "it is"
